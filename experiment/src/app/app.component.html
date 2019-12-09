@@ -3,12 +3,33 @@
   <h1>Welcome to an {{ title }}!</h1>
 </div>
 
+<div style="text-align: center">
+  <span appChangeText >Welcome to an {{title}}.</span>
+</div>
+
+<div style="text-align: center">
+  <b>{{title | uppercase}}</b><br/>
+  <b>{{title | lowercase}}</b>
+</div>
+
+
 <div>
   Months:
-  <select>
+  <select (change)="changeMonths($event)" name="month">
     <option *ngFor="let i of months">{{i}}</ option>
   </select>
 </div>
+<br/>
+
+<div>
+  <span *ngIf="isavailable; else condition2">Condition is valid.</span>
+  <ng-template #condition1>Condition is valid from template</ng-template>
+  <ng-template #condition2>Condition is invalid from template</ng-template>
+</div>
+
+<button (click)="myClickFunction($event)">
+  Click me
+</button>
 
 
 <app-new-cmp></app-new-cmp>
